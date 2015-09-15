@@ -1,27 +1,23 @@
 ﻿About
 -----
 
-This script allows you to collect WebSphere Performance Statistics continuously into a CSV file to analyze later with Excel or a similar tools.
-The script is written in jython and runs under the wsadmin shell  shipped  with
-all WebSphere distributions. No additional software installation is needed.
+This script allows you to collect WebSphere Performance Statistics continuously into a CSV file to analyze later with Excel or a similar tool.
+The script is written in jython and runs under the wsadmin shell shipped with all WebSphere distributions. No additional software installation is needed.
 
 The script sits in the background and pulls statistics from a select
 number of peformance MBeans provided by WAS. The list of statistics to pull  is
 specified in the performance.prop file located in the current folder.
-If you want to list all the statistics that is available in your WAS run the script with the -l option at the end.
+If you want to list all the statistics that is available in your WAS installation, run the script with the -l option at the end.
 
-The script has been tested on AIX and Windows. It can run as a service under Windows, which provides way to easily start and stop performance monitoring. In order
-for it to function as a Windows service the script uses Windows Management Instrumentation (WMI) to monitor parent process and shutdown itself when the parent (wasadmin) is terminated.
+The script has been tested on AIX and Windows. It can run as a service under Windows, which provides an easy way to start and stop performance monitoring. In order
+for it to function as a Windows service the script uses Windows Management Instrumentation (WMI) to monitor parent process and shutdown itself when its parent (service launcher) is terminated.
 
 Setting it up
 -------------
 
-### Windows
-Use the wsadmin.bat located under the default ND deployment manager or a node. For example: c:\Program Files\IBM\WebSphere\AppServer\bin\wsadmin.bat
+**Windows:** Use the wsadmin.bat located under the default ND deployment manager or a node. For example: c:\Program Files\IBM\WebSphere\AppServer\bin\wsadmin.bat
 
-### AIX/Linux
-Use the wsadmin.sh in your dmgr/nodemanager for an ND deployment, or the server bin folder for a single server install.
-I.e. /opt/websphere/appserver/bin/wsadmin.sh or /opt/websphere/appserver/profiles/node01/bin/wsadmin.sh
+**AIX/Linux:** Use the wsadmin.sh in your dmgr/nodemanager for an ND deployment, or the server bin folder for a single server install. I.e. /opt/websphere/appserver/bin/wsadmin.sh or /opt/websphere/appserver/profiles/node01/bin/wsadmin.sh
 
 -   First, make sure the WebSphere Performance Monitoring Infrastructure is [enabled].
 -   Make sure your jython shell is setup properly by running
