@@ -12,6 +12,8 @@ If you want to list all the statistics that is available in your WAS installatio
 The script has been tested on AIX and Windows. It can run as a service under Windows, which provides an easy way to start and stop performance monitoring. In order
 for it to function as a Windows service the script uses Windows Management Instrumentation (WMI) to monitor parent process and shutdown itself when its parent (service launcher) is terminated.
 
+For more insights on how this script uses the WebSphere Performance Monitoring Interface to pull real-time statistics, look in the [IBM reference document].
+
 Setting it up
 -------------
 
@@ -80,3 +82,4 @@ Enable the client security by setting the com.ibm.CORBA.securityEnabled property
   [Windows resource kit]: http://www.microsoft.com/download/en/details.aspx?id=17657
   [thin admin client]: http://pic.dhe.ibm.com/infocenter/wasinfo/v8r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/txml_adminclient.html
   [more info]: http://pic.dhe.ibm.com/infocenter/wasinfo/v6r1/topic/com.ibm.websphere.express.doc/info/exp/ae/rsec_sslclientpropsfile.html
+  [IBM reference document]: http://www-01.ibm.com/support/knowledgecenter/SSEQTP_7.0.0/com.ibm.websphere.nd.doc/info/ae/ae/tprf_command.html
