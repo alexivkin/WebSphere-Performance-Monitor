@@ -64,5 +64,19 @@ enrole.appServer.ejbuser.principal = WAS admin password`
 ```
 - Start the service
 
+Running the collector from a separate server
+-------------------------------------------
+You can run this remotely from a separate server, or a desktop. For this you need the [thin admin client], IBM JVM Software Development Kit (SDK) and python (any version after 2.1 would do).
+
+- Copy the Administration Thin Client JAR files (com.ibm.ws.admin.clientXXX.jar) from an your WAS environment into the collector box client-folder
+- Copy the messages directory from the app_server_root/properties directory to the /client-folder/properties
+- Copy the com.ibm.ws.security.crypto.jar file from either the AppServer/plugins directory to /client-folder.
+- Copy the soap.client.props, wsjaas_client.conf, ssl.client.props files from the AppServer\profiles\profileName/properties directory to /client-folder/properties. [more info]
+- Copy the key.p12 and trust.p12 files from AppServer\profiles\profileName\etc directory to /client-folder/ directory.
+Enable the client security by setting the com.ibm.CORBA.securityEnabled property to true. or set the properties in the soap.client.props file in your Java code.
+- Use -host *HOSTIP* -port *SOAP_PORT* attributes to wsadmin when running the script
+
   [enabled]: http://tech.ivkin.net/wiki/IBM_WebSphere_Application_Server_How_To#How_to_enable_WAS_performance_monitoring
   [Windows resource kit]: http://www.microsoft.com/download/en/details.aspx?id=17657
+  [thin admin client]: http://pic.dhe.ibm.com/infocenter/wasinfo/v8r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/txml_adminclient.html
+  [more info]: http://pic.dhe.ibm.com/infocenter/wasinfo/v6r1/topic/com.ibm.websphere.express.doc/info/exp/ae/rsec_sslclientpropsfile.html
