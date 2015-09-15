@@ -1,0 +1,15 @@
+# Specify which stat objects to collect. 
+# Short name = WAS performance stat object
+# You can specify the full name of the stat object or just a partial search like this 
+# name=clone1,*,type=Server
+#ITIM DB2 XA pool      =WebSphere:name=ITIM XA DB2 JDBC Provider,process=isimclone1,platform=dynamicproxy,node=node01,j2eeType=JDBCResource,J2EEServer=isimclone1,Server=isimclone1,version=8.5.0.2,type=JDBCProvider,*
+#ITIM DB2 non-XA pool  =WebSphere:name=ITIM non-XA DB2 JDBC Provider,process=isimclone1,platform=dynamicproxy,node=node01,j2eeType=JDBCResource,J2EEServer=isimclone1,Server=isimclone1,version=8.5.0.2,type=JDBCProvider,*
+#ITIM DB2 MQ  XA pool  =WebSphere:name=ITIM non-XA DB2 JDBC Provider,process=isimmsgclone1,platform=dynamicproxy,node=node01,j2eeType=JDBCResource,J2EEServer=isimmsgclone1,Server=isimmsgclone1,version=8.5.0.2,type=JDBCProvider,*
+JVM                    =WebSphere:name=JVM,process=clone1,platform=proxy,node=node01,j2eeType=JVM,J2EEServer=isimclone1,version=8.5.0.2,type=JVM,mbeanIdentifier=JVM,cell=cell01,spec=1.0
+NODEAGENT JVM          =WebSphere:name=JVM,process=nodeagent,platform=proxy,node=node01,j2eeType=JVM,J2EEServer=nodeagent,version=8.5.0.2,type=JVM,mbeanIdentifier=JVM,cell=cell01,spec=1.0
+System                 =type=SystemMetrics,*
+#ISIM TCP Threads      =WebSphere:name=TCPChannel.DCS,process=isimclone1,platform=dynamicproxy,node=node01,version=8.5.0.2,type=ThreadPool,mbeanIdentifier=cells/cell01/nodes/node01/servers/isimclone1/server.xml#ThreadPool_1386183999423,cell=cell01,spec=1.0
+#MQ TCP Threads        =WebSphere:name=TCPChannel.DCS,process=isimmsgclone1,platform=dynamicproxy,node=node01,version=8.5.0.2,type=ThreadPool,mbeanIdentifier=cells/cell01/nodes/node01/servers/isimmsgclone1/server.xml#ThreadPool_1386184354472,cell=cell01,spec=1.0
+#System
+# wait period in seconds
+wait = 60
