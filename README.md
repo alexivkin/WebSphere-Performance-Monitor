@@ -12,9 +12,7 @@ If you want to list all the statistics that is available in your WAS installatio
 The script has been tested on AIX and Windows. It can run as a service under Windows, which provides an easy way to start and stop performance monitoring. In order
 for it to function as a Windows service the script uses Windows Management Instrumentation (WMI) to monitor parent process and shutdown itself when its parent (service launcher) is terminated.
 
-For more insights on how this script uses the WebSphere Performance Monitoring Interface to pull real-time statistics, look in the [IBM reference document].
-
-Other good refenrece documents [here](http://www.ibm.com/developerworks/websphere/techjournal/1112_guillemenot/1112_guillemenot.html)
+For more insights on how this script uses the WebSphere Performance Monitoring Interface to pull real-time statistics, look in the [IBM reference document]. Other good reference documents [here](http://www.ibm.com/developerworks/websphere/techjournal/1112_guillemenot/1112_guillemenot.html).
 
 Setting it up
 -------------
