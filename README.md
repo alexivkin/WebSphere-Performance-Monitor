@@ -13,6 +13,7 @@ The script has been tested on AIX and Windows. It can run as a service under Win
 for it to function as a Windows service the script uses Windows Management Instrumentation (WMI) to monitor parent process and shutdown itself when its parent (service launcher) is terminated.
 
 For more insights on how this script uses the WebSphere Performance Monitoring Interface to pull real-time statistics, look in the [IBM reference document].
+Other good refenrece documents - [1]
 
 Setting it up
 -------------
@@ -27,11 +28,11 @@ Setting it up
 `wsadmin -lang jython -user *WASADMIN* -password *WASADMINPWD*`
 
 -   In some cases, like when you have security disabled, or running on a node manager, you do not have to specify the was admin and user in the command line.
--   Run the script with the -l option to figure out what statistics you need. There are some sample statistics in the performance.prop file already.
+-   Run the script with the -l option to list the statistics you have available. There are some sample statistics in the performance.prop file already.
 
 `wsadmin -lang jython -user *WASADMIN* -password *WASADMINPWD* -f collectWASPerformanceStats.py allstats.txt -l`
 
--   Copy the the specific stats you are interested in from allstats.txt into performance.prop
+-   Copy the the specific stats you are interested in from allstats.txt into performance.prop. See preformance.prop for the expected syntax
 -   Run the script
 
 `wsadmin -lang jython -user *WASADMIN* -password %ADMINPWD% -f collectWASPerformanceStats.py stats.csv`
@@ -44,6 +45,7 @@ Simply nohup it:
 
 You could also do a daily rollover:
 
+`was_pmi_collector.sh`
 
 How to install the script as a Windows service
 ----------------------------------------------
@@ -83,3 +85,4 @@ Enable the client security by setting the com.ibm.CORBA.securityEnabled property
   [thin admin client]: http://pic.dhe.ibm.com/infocenter/wasinfo/v8r0/index.jsp?topic=/com.ibm.websphere.nd.multiplatform.doc/info/ae/ae/txml_adminclient.html
   [more info]: http://pic.dhe.ibm.com/infocenter/wasinfo/v6r1/topic/com.ibm.websphere.express.doc/info/exp/ae/rsec_sslclientpropsfile.html
   [IBM reference document]: http://www-01.ibm.com/support/knowledgecenter/SSEQTP_7.0.0/com.ibm.websphere.nd.doc/info/ae/ae/tprf_command.html
+  [1]: http://www.ibm.com/developerworks/websphere/techjournal/1112_guillemenot/1112_guillemenot.html
